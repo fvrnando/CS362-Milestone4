@@ -1,6 +1,6 @@
-Audio Subsystem Code - Fernando Mantilla
-(FHT library & code, Bluetooth code not implemented yet - awaiting parts to proceed, more of a skeleton code to know where each portion will be set)
-Reference: https://create.arduino.cc/projecthub/janux/fht-audio-spectrum-visualizer-83bba0
+// Audio Subsystem Code - Fernando Mantilla
+// (FHT library & code, Bluetooth code not implemented yet - awaiting parts to proceed, more of a skeleton code to know where each portion will be set)
+// Reference: https://create.arduino.cc/projecthub/janux/fht-audio-spectrum-visualizer-83bba0
 
 // include the library code for the FHT library
 #include <FHT.h>
