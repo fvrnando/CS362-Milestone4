@@ -1,0 +1,25 @@
+Audio Subsystem Code - Fernando Mantilla
+(FHT library & code, Bluetooth code not implemented yet - awaiting parts to proceed, more of a skeleton code to know where each portion will be set)
+Reference: https://create.arduino.cc/projecthub/janux/fht-audio-spectrum-visualizer-83bba0
+
+// include the library code for the FHT library
+#include <FHT.h>
+
+// assign arduino pins
+const int infoSendButton = 2; // this is the button that sends the information
+// const int rcaPlug = 5; // this is the pin where the RCA female plug will be connected
+
+void setup() {
+// write FHT operations to send this information to the other subsystems
+pinMode(infoSendButton, OUTPUT);
+}
+
+void loop() {
+// gather information from the audio source and music playing through the RCA plug
+// perform FHT operations and save the data so that the Display and Lightshow subsystems // can read it and perform their operations
+buttonState = digitalRead(infoSendButton);
+if (buttonState == HIGH) {
+	// here we will send the information to the bluetooth RF transmitter to change themes, 
+// color, lighting and rhythm
+} // no else, because we can just do nothing and keep the same themes
+}
