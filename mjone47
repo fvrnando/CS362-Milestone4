@@ -1,0 +1,45 @@
+// Mitchell Jones
+// 361 project (rough sketch, code does not really do anything yet)
+// References - https://create.arduino.cc/projecthub/janux/fht-audio-spectrum-visualizer-83bba0?ref=search&ref_id=music+spectrum&offset=6
+ 
+// include library for matrix
+#include <Adafruit_NeoPixel.h>
+ 
+const int brightnessButton = 8; // assigns brightness button its pin
+const int matrixPin = 7; // pin where matrix connected for data
+const int x = 32; // number of columns in matrix
+const int y = 8; // number of rows in matrix
+const int totalLEDs = 256 // total number of LEDs in matrix
+int brightness = 0; // variable to hold brightness setting
+int theme = 0; // variable to hold theme setting
+int sample_data[x]; // holds recieved data from audio subsystem
+ 
+void setup() {
+ // put your setup code here, to run once:
+ Serial.begin(9600);
+ pinmode(brightnessButton, INPUT); // sets button as input device
+ pixel.begin() // initializes led matrix
+ pixel.setBrightness(brightness * 24 + 8); // sets initial brightness
+ 
+ 
+}
+ 
+void loop() {
+ // gets brightness reading from button
+ if (digitalRead(brightnessButton) == HIGH) {
+   if (brightness < 8) {
+     brightness++
+   }
+   else {
+     brightness = 0;
+   }
+   pixel.setBrightness(brightness * 24 + 8); // sets matrix brightness
+ 
+ }
+ 
+ // recieve data from audio subsystem
+ if (Serial.available()) {
+   for (int i = 0; i < 32; i++) {
+     sample_data[i] = Serial.read();
+   }
+ }
